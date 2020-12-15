@@ -18,13 +18,14 @@ pipeline {
 						}
 					}
 					stage('Run') {
-						//
+						sh "nohup gradle bootRun &"
+						sleep 20
 					}
 					stage('Test') {
-						//
+						sh "curl -XGET 'localhost:8082/rest/mscovid/test?msg=testing'"
 					}
 					stage('Nexus') {
-						//
+						nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'feature-nexus-repo', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: 'jar', filePath: 'D:\\Estudios\\ejemplo-maven\\build\\libs\\DevOpsUsach2020-0.0.1.jar']], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.1']]]
 					}
 				}
             }
