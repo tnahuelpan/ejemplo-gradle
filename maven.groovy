@@ -15,7 +15,7 @@ def call(){
 		}
 	}
 	stage('uploadNexus'){
-		nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'feature-nexus-repo', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: 'jar', filePath: 'D:\\Estudios\\ejemplo-gradle\\build\\DevOpsUsach2020-0.0.1.jar']], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.2']]]
+		nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'maven-gradle', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: 'jar', filePath: 'D:\\Estudios\\ejemplo-gradle\\build\\DevOpsUsach2020-0.0.1.jar']], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.2']]]
 	}
 }
 
