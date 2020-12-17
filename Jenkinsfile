@@ -7,11 +7,11 @@ pipeline {
         stage('Pipeline') {
             steps {
                 script {
-					params.devtool
+			params.devtool
 				
-					def ejecucion = (params.devtool == 'gradle') ? load 'gradle.groovy' : load 'maven.groovy'
-					ejecucion.call()
-				}
+			def ejecucion = (params.devtool == 'gradle') ? load("gradle.groovy") : load("maven.groovy")
+			ejecucion.call()
+		}
             }
         }
     }
